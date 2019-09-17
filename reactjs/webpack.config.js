@@ -11,7 +11,7 @@ const config = {
  entry: './src/index.js', // archivo js que codearemos
 
  output: {
-  path: path.resolve('./dist'), //resolver el path de salida
+  path: path.resolve('./public'), //resolver el path de salida
   filename: 'bundle.js' // archivo js compilado
  },
 
@@ -32,13 +32,13 @@ const config = {
  },
 
  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'public'),
     compress: true,
     port: 9000
   },
 
  plugins: [new HtmlWebpackPlugin({
-                                 template: './dist/index.html', // archivo de nuestra vista
+                                 template: './public/index.html', // archivo de nuestra vista
                                  filename: "./index.html"
                                 })] // configuración de nuestra vista
 
