@@ -1,8 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { aSendLogout } from '../redux/actions';
 import * as ROUTES from '../constants/routes';
 
-const Header = () => (
+const Header = (props) => {
+
+  // si no esta autentificado no muestra la cabecera
+  if(!props.isAuth){
+    return (<div></div>)
+  }
+
+  return (
   <div>
     <ul>
       <li>
@@ -15,7 +24,16 @@ const Header = () => (
         <Link to={ROUTES.ADMIN}>Admin</Link>
       </li>
     </ul>
-  </div>
-);
+  </div>)
+};
 
-export default Header;
+
+const mapStateToProps = (state) => ({
+  isAuth : state.isAuth,
+});
+
+const mapDispatchToProps = {
+  aSendLogout,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
