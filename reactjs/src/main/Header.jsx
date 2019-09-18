@@ -4,7 +4,11 @@ import { connect } from "react-redux";
 import { aSendLogout } from '../redux/actions';
 import * as ROUTES from '../constants/routes';
 
+import DB from '../services/db';
+
 const Header = (props) => {
+
+  DB.existUser("dadasd", "dadad");
 
   // si no esta autentificado no muestra la cabecera
   if(!props.isAuth){
