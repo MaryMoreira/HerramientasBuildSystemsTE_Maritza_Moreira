@@ -5,6 +5,9 @@
 }*/
 
 
+/*
+    HEADER STYLES
+*/
 .header-badge{
     right: -3;
     border: 2px solid inherit;
@@ -22,6 +25,10 @@
 .header-title{
     flex-grow: 1;
 }
+
+/*
+    LOGIN STYLES
+*/
 
 .login-box{
     color: white;
@@ -54,4 +61,44 @@
 
 .login-submit {
     margin: 24px 0px 16px !important;
+}
+
+/*
+    ITEMS STYLES
+*/
+.items-icon{
+    margin-right: 1,
+}
+
+.items-hero-content{
+    padding: 64px 0px 48px;
+    background-color: #fff;
+}
+
+.items-hero-buttons{
+    margin-top: 8px;
+}
+
+.items-card-grid{
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.items-card{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.items-card-media{
+    padding-top: 84.25%;
+}
+
+.items-card-content{
+    flex-grow: 1;
+}
+
+.items-footer {
+    background-color: #fff;
+    padding: 9;
 }

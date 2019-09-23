@@ -16,20 +16,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
-
-// jsx del Copyright
-function Copyright() {
-    return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="#">
-          Mary Moreira
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
-}
+import Copyright from '../components/Copyright';
 
 function LoginMsg(props){
     console.log(props);
@@ -81,7 +68,7 @@ class Login extends React.Component {
     }
     // si no tiene passsord muestra el error
     if(pass.length  == 0){
-      this.setState({passHelp:'Ingrese una contraseÃ±a'})
+      this.setState({passHelp:'Ingrese una contraseña'})
       return;
     }
 
@@ -89,7 +76,7 @@ class Login extends React.Component {
       localStorage.setItem("user", user);
       localStorage.setItem("pass", pass);
     }
-    localStorage.setItem("pass", save);
+    localStorage.setItem("save", save);
 
     // envia a procesar el login
     this.props.aSendLogin(user, pass);

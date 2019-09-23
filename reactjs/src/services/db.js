@@ -45,7 +45,7 @@ class DB {
 
         // verifica si tiene el usuario
         products.orderByChild("id").on("child_added", (snapshot) => {
-            this.products.push(snapshot.val());
+            this.products.push({...snapshot.val(), purcharse:1});
             console.log("Productos: ", this.products);
         });
     }

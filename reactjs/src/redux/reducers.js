@@ -23,7 +23,6 @@ export default (state = initialState, action) => {
     switch (action.type) {
 
       case ACTION.SEND_LOGIN:{
-
         if(DB.existUser(action.user, action.pass)){
           newState.loginMsg = "";
           newState.filter   = "";
@@ -32,18 +31,25 @@ export default (state = initialState, action) => {
           newState.pass     = action.pass;
           newState.view     = "home";
           newState.items    = DB.filterProducts(newState.filter);
-          history.push('/home'); // se diregi a la pagina de home
+          history.push('/home'); // se coloca en la pagina de home
         }else{
           newState.loginMsg = "Ingrese credenciales validas!!!";
           newState.isAuth   = false;
         }
-        console.log("Login:", newState);
-
         return  newState;
       }
 
-      case ACTION.SEND_LOGOUT:
+      case ACTION.SEND_LOGOUT:{
+        newState.loginMsg = "";
+        newState.filter   = "";
+        newState.isAuth   = false;
+        newState.user     = "";
+        newState.pass     = "";
+        newState.view     = "login";
+        newState.items    = [];
+        history.push('/'); // se coloca en la pagina de login
         return newState;
+      }
 
       case ACTION.SHOW_PURCHASE:
             return newState;

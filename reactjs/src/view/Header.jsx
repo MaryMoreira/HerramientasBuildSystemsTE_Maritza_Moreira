@@ -35,7 +35,7 @@ const Header = (props) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className="header-title">
-            Tienda Online \ M.M.
+            Tienda Online
           </Typography>
           <Box display="flex">
               <Box m={1}>
@@ -70,7 +70,7 @@ const Header = (props) => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className="header-title">
-             NextUI \ M.M.
+             NextUI
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
