@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import App from './main/App';
+import App from './view/App';
+import { Provider } from 'react-redux'
+import { HashRouter } from 'react-router-dom';
 
-//import './index.css';
-//import * as serviceWorker from './serviceWorker';
+import store from  './redux/store';
 
-ReactDOM.render( <App />, document.getElementById('app'));
-
-
-//serviceWorker.unregister();
+ReactDOM.render(<Provider store={store}>
+                   <HashRouter>
+                        <App />
+                    </HashRouter>
+                </Provider>,
+                document.getElementById('app') );

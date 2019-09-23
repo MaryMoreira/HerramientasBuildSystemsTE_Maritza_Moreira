@@ -1,47 +1,50 @@
 
+import * as ACTION from './const';
+
 // atiende a la peticion de login
 export const aSendLogin = (user, pass) => ({
-    type: "SendLogin",
+    type: ACTION.SEND_LOGIN,
     user,
     pass
 });
 
 // enviar un logout
 export const aSendLogout = () => ({
-    type: "SendLogout"
+    type: ACTION.SEND_LOGOUT
 });
 
 
 // muestra la compra
-export const aShowPurcharse = (item) => ({
-    type: "ShowPurcharse",
+export const aShowPurchase = (item) => ({
+    type: ACTION.SHOW_PURCHASE,
 });
 
 // muestra la compra
-export const aShowMainPage = (item) => ({
-    type: "ShowMainPage",
+export const aShowHome = (item) => ({
+    type: ACTION.SHOW_HOME,
+});
+
+
+// muestra el detalle del item
+export const aShowItem = (item) => ({
+    type: ACTION.SHOW_ITEM,
+    item
 });
 
 // utiliza el filtro de los items
 export const aFilterItems = (filter) => ({
-    type: "FilterItems",
+    type: ACTION.FILTER_ITEMS,
     filter
 });
 
 // añadir un item al carrito de compras
-export const aAddItem = (item) => ({
-    type: "AddItem",
+export const aAddPurchaseItem = (item) => ({
+    type: ACTION.ADD_PURCHASE_ITEM,
     item
 });
 
 // remover un item al carrito de compra
-export const aRemoveItem = (item) => ({
-    type: "RemoveItem",
-    item
-});
-
-// muestra el detalle del item
-export const aShowItem = (item) => ({
-    type: "ShowItem",
+export const aRemovePurchaseItem = (item) => ({
+    type: ACTION.REMOVE_PURCHASE_ITEM,
     item
 });

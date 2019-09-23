@@ -1,47 +1,47 @@
-/*
- ./webpack.config.js
-*/
+const path = require("path");
 
-const path = require('path'); // path utility
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const WebpackNotifierPlugin = require('webpack-notifier');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+module.exports = {
 
-const config = {
+  entry: path.resolve(__dirname, "src/index.js"),
+  mode: 'development',
+  devtool: 'source-map',
 
- entry: './src/index.js', // archivo js que codearemos
-
- output: {
-  path: path.resolve('./public'), //resolver el path de salida
-  filename: 'bundle.js' // archivo js compilado
- },
-
- module: {
-  rules: [
-    {
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-      use: {
-        loader: "babel-loader"
-      }
-    }
-  ]
-},
-
- resolve: {
-  extensions: ['.js', '.jsx']
- },
-
- devServer: {
-    contentBase: path.join(__dirname, 'public'),
-    compress: true,
-    port: 9000
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+    sourceMapFilename: '[file].map',
   },
 
- plugins: [new HtmlWebpackPlugin({
-                                 template: './public/index.html', // archivo de nuestra vista
-                                 filename: "./index.html"
-                                })] // configuración de nuestra vista
+  resolve: {
+    extensions: [".js", ".jsx"]
+  },
 
-}
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ["babel-loader"]
+      }
+    ]
+  },
 
-module.exports = config; //exportamos a webpack nuestra configuración
+  watchOptions: { // detecta cambios
+      poll: true,
+  },
+
+  devServer: {
+    contentBase: path.resolve(__dirname), // New
+    historyApiFallback: true,
+  },
+
+  plugins: [
+    new WebpackNotifierPlugin(),
+    new FriendlyErrorsWebpackPlugin()
+  ],
+
+};

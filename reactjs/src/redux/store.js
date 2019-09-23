@@ -1,18 +1,17 @@
-import { createStore } from "redux";
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import { createHashHistory } from 'history';
+import { connectRouter } from 'connected-react-router';
+
 import reducer from "./reducers";
 
-function configureStore(state = {
-                                  isAuth: false,
-                                  update: 0,
-                                  user: "",
-                                  pass: "",
-                                  filter : "",
-                                  itemsCount : 0,
-                                  curItem : {},
-                                  items: [],
-                                })
-{
-  return createStore(reducer, state);
-}
+// create history object
+export const history = createHashHistory();
 
-export default configureStore;
+const store = createStore(
+    combineReducers({
+        tienda: reducer,
+        router: connectRouter(history),
+      }),
+);
+
+export default store;
