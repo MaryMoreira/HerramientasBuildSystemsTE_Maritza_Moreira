@@ -45,7 +45,7 @@ class DB {
 
         // verifica si tiene el usuario
         products.orderByChild("id").on("child_added", (snapshot) => {
-            this.products.push({...snapshot.val(), purcharse:1});
+            this.products.push({...snapshot.val(), purchase:1});
             console.log("Productos: ", this.products);
         });
     }
@@ -63,10 +63,10 @@ class DB {
 
     // obtiene los productos filtrados
     filterProducts(filter){
-        if(filter || filter.length == 0){
+        if(!filter || filter.length == 0){
             return this.products;
         }
-        return this.products.filter ( p => p.name.startsWith(filter) );
+        return this.products.filter ( p => p.name.toUpperCase().startsWith(filter.toUpperCase()) );
     }
 }
 

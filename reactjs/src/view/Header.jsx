@@ -40,21 +40,21 @@ const Header = (props) => {
           <Box display="flex">
               <Box m={1}>
                 <IconButton aria-label="mail">
-                  <Badge badgeContent={0} color="primary" className="header-badge">
+                  <Badge badgeContent={0} color="secondary" className="header-badge">
                     <MailIcon />
                   </Badge>
                 </IconButton>
               </Box>
               <Box m={1} onClick={ShowPurcharse}>
                 <IconButton aria-label="accessTime">
-                  <Badge badgeContent={0} color="primary" className="header-badge">
+                  <Badge badgeContent={0} color="secondary" className="header-badge">
                     <AccessTimeIcon />
                   </Badge>
                 </IconButton>
               </Box>
               <Box m={1}>
                 <IconButton aria-label="cart">
-                  <Badge badgeContent={props.itemsCount} color="primary" className="header-badge">
+                  <Badge badgeContent={props.itemsCount} color="secondary" className="header-badge">
                     <ShoppingCartIcon />
                   </Badge>
                 </IconButton>

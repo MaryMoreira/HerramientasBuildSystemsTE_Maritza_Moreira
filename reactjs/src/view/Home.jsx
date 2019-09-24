@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { aFilterItems } from '../redux/actions';
+import { aFilterItems, aAddPurchaseItem, aChangeQuantityItem } from '../redux/actions';
 
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
@@ -31,13 +31,28 @@ class Home extends React.Component {
     }
   }
 
-  changeNumber = (item) => {
+  // cambiar la cantidad que se ingresara de un item
+  changeNumber = (item, event) => {
+    let value = event.target.value;
 
+    if(value.length == 0){
+        value = "";
+    }else{
+        value = parseInt(value);
+        if(value <= 0 ){
+            value = 1;
+        }
+        if(value > 10 ){
+            value = 10;
+        }
+    }
+    this.props.aChangeQuantityItem(item, value);
   }
 
   addPurchaseItem = (item) => {
-
+    this.props.aAddPurchaseItem(item);
   }
+
 
   // crea el render
   render(){
@@ -47,12 +62,12 @@ class Home extends React.Component {
             <main>
                 {/* Hero unit */}
                 <div className="items-hero-content">
-                <Container maxWidth="sm">
+                <Container maxWidth="md">
                     <Grid container spacing={4} justify="center">
                         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
                             Catálogo
                         </Typography>
-
+                        <div className="items-space"/>
                         <InputSearch />
                     </Grid>
                 </Container>
@@ -62,7 +77,7 @@ class Home extends React.Component {
                 <Grid container spacing={4}>
                     {this.props.items.map( item => (
 
-                    <Grid item key={item.id} xs={12} sm={6} md={4}>
+                    <Grid item key={item.name} xs={12} sm={6} md={4}>
                         <Card className="items-card">
                             <CardMedia
                                 className="items-card-media"
@@ -79,23 +94,27 @@ class Home extends React.Component {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button  variant="contained" size="small" color="primary">
-                                   Más
-                                </Button>
-                                <Button variant="contained" size="small" color="secondary">
-                                    Añadir
-                                </Button>
-                                <TextField
-                                        id="outlined-number"
-                                        label="Cantidad"
-                                        onChange={this.changeNumber(item)}
-                                        value={item.purcharse}
-                                        type="number"
-                                        InputLabelProps={{
-                                            shrink: true,
-                                        }}
-                                        margin="normal"
-                                    />
+                                <Grid container spacing={2} >
+                                    <Grid item xs={12} sm={6}>
+                                        <Button  variant="contained" size="small" color="primary">
+                                            Ver Más
+                                        </Button>
+                                    </Grid>
+                                    <Grid item xs={12} sm={6}>
+                                        <Button variant="contained" size="small" color="secondary" onClick={this.addPurchaseItem.bind(this, item)}>
+                                            Añadir
+                                        </Button>
+                                        <TextField
+                                                id="outlined-number"
+                                                onChange={this.changeNumber.bind(this, item)}
+                                                type="number"
+                                                value={item.purchase}
+                                                InputProps={{ inputProps: { min: 1, max: 10, style: { textAlign: 'right'}} }}
+                                                style = {{width: 45}} //assign the width as your requirement
+                                                margin="none"
+                                            />
+                                     </Grid>
+                                </Grid>
                             </CardActions>
                         </Card>
                     </Grid>
@@ -125,7 +144,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-    aFilterItems
+    aFilterItems,
+    aAddPurchaseItem,
+    aChangeQuantityItem
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

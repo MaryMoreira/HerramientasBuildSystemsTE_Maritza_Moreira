@@ -9,3 +9,6 @@ export const FILTER_ITEMS  = "FilterItems";
 
 export const ADD_PURCHASE_ITEM  = "AddPurchaseItem";
 export const REMOVE_PURCHASE_ITEM  = "RemovePurchaseItem";
+
+export const CHANGE_QUANTITY_ITEM = "SumQuantityItem";
+

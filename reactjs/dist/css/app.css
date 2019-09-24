@@ -90,6 +90,10 @@
     flex-direction: column;
 }
 
+.items-space{
+    width: 25%;
+}
+
 .items-card-media{
     padding-top: 84.25%;
 }

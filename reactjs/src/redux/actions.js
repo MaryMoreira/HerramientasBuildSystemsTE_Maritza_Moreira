@@ -37,6 +37,14 @@ export const aFilterItems = (filter) => ({
     filter
 });
 
+// Añade una cantidad al item
+export const aChangeQuantityItem = (item, amount) => ({
+    type: ACTION.CHANGE_QUANTITY_ITEM,
+    item,
+    amount
+});
+
+
 // añadir un item al carrito de compras
 export const aAddPurchaseItem = (item) => ({
     type: ACTION.ADD_PURCHASE_ITEM,

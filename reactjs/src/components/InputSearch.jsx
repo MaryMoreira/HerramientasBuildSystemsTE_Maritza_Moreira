@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { aFilterItems } from '../redux/actions';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
@@ -10,7 +13,7 @@ import DirectionsIcon from '@material-ui/icons/Directions';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: '2px 4px',
+    padding: '0px 2px',
     display: 'flex',
     alignItems: 'center',
     width: 400,
@@ -24,8 +27,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function InputSearch() {
+const InputSearch = (props) => {
   const classes = useStyles();
+
+  // realiza la busqueda
+  let search = (e) => {
+      let value = e.target.value;
+      props.aFilterItems(value);
+  };
 
   return (
     <Paper className={classes.root}>
@@ -34,6 +43,7 @@ export default function InputSearch() {
       </IconButton>
       <InputBase
         className={classes.input}
+        onChange={search}
         placeholder="Ingrese el Producto"
         inputProps={{ 'aria-label': 'ingrese el producto' }}
       />
@@ -42,4 +52,15 @@ export default function InputSearch() {
       </IconButton>
     </Paper>
   );
-}
+};
+
+
+const mapStateToProps = (state) => ({
+  itemsCount : state.tienda.itemsCount
+});
+
+const mapDispatchToProps = {
+  aFilterItems
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputSearch);

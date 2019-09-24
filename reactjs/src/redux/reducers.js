@@ -14,7 +14,7 @@ let initialState =  {
       itemsCount : 0,
       curitem : {},
       items: [],
-      purcharse : []
+      purchase : []
 };
 
 export default (state = initialState, action) => {
@@ -51,6 +51,20 @@ export default (state = initialState, action) => {
         return newState;
       }
 
+      case ACTION.FILTER_ITEMS:{ // realiza el filtro de los items
+        let filterItems = DB.filterProducts(action.filter);
+
+        newState.items = filterItems.map( item => {
+            let found = newState.items.find ( last => item.name == last.name );
+            if(found){
+              item.purchase = found.purchase;
+            }
+            return {...item};
+        })
+
+        return newState;
+      }
+
       case ACTION.SHOW_PURCHASE:
             return newState;
 
@@ -60,10 +74,31 @@ export default (state = initialState, action) => {
       case ACTION.SHOW_ITEM:
         return newState;
 
-      case ACTION.ADD_PURCHASE_ITEM:
-        return newState;
+      case ACTION.ADD_PURCHASE_ITEM: {
+        let filter = newState.purchase.filter( item => item.name == action.item.name);
 
-      case ACTION.REMOVE_PURCHASE_ITEM:
+        if(filter.length == 0){
+          newState.purchase = newState.purchase.map ( item => item );
+          newState.purchase.push({...action.item});
+          newState.itemsCount += 1; // añade uno al carrito
+        }else{
+          newState.purchase = newState.purchase.map ( item => {
+            if(item.name == action.item.name){
+              item.purchase += action.item.purchase;
+            }
+            return {...item}
+           } );
+        }
+        return newState;
+      }
+
+      case ACTION.CHANGE_QUANTITY_ITEM:
+        newState.items = newState.items.map( item => {
+            if(item.name == action.item.name){
+              item.purchase = action.amount;
+            }
+            return {...item};
+        })
         return newState;
 
       default:
