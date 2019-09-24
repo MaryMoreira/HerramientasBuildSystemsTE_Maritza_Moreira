@@ -20,8 +20,9 @@ export const aShowPurchase = (item) => ({
 });
 
 // muestra la compra
-export const aShowHome = (item) => ({
+export const aShowHome = (clean) => ({
     type: ACTION.SHOW_HOME,
+    clean
 });
 
 

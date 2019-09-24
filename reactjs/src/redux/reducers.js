@@ -65,14 +65,28 @@ export default (state = initialState, action) => {
         return newState;
       }
 
-      case ACTION.SHOW_PURCHASE:
-            return newState;
-
-      case ACTION.SHOW_HOME:
+      case ACTION.SHOW_PURCHASE:{ // muestra la pagina de compra
+        newState.view  = "purchase";
+        history.push('/purchase'); // se coloca en la pagina de compra
         return newState;
+      }
 
-      case ACTION.SHOW_ITEM:
+      case ACTION.SHOW_HOME:{ // regresa a la pagina de home
+        newState.view  = "home";
+        if(action.clean){
+          newState.purchase   = [];
+          newState.itemsCount = 0;
+        }
+        history.push('/home'); // se coloca en la pagina de compra
         return newState;
+      }
+
+      case ACTION.SHOW_ITEM:{ // muestra la pagina de items
+        newState.view    = "item";
+        newState.curitem = {...action.item};
+        history.push('/item'); // se coloca en la pagina de compra
+        return newState;
+      }
 
       case ACTION.ADD_PURCHASE_ITEM: {
         let filter = newState.purchase.filter( item => item.name == action.item.name);

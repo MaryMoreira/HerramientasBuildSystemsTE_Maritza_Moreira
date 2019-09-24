@@ -23,7 +23,9 @@ const Header = (props) => {
   }
 
   let ShowPurcharse = () => {
-    props.aShowPurchase();
+    if(props.itemsCount > 0){
+      props.aShowPurchase();
+    }
   }
 
   // si no esta autentificado no muestra la cabecera
@@ -45,14 +47,14 @@ const Header = (props) => {
                   </Badge>
                 </IconButton>
               </Box>
-              <Box m={1} onClick={ShowPurcharse}>
+              <Box m={1}>
                 <IconButton aria-label="accessTime">
                   <Badge badgeContent={0} color="secondary" className="header-badge">
                     <AccessTimeIcon />
                   </Badge>
                 </IconButton>
               </Box>
-              <Box m={1}>
+              <Box m={1} onClick={ShowPurcharse}>
                 <IconButton aria-label="cart">
                   <Badge badgeContent={props.itemsCount} color="secondary" className="header-badge">
                     <ShoppingCartIcon />

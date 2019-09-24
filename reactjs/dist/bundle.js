@@ -2583,6 +2583,251 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/core/esm/ButtonGroup/ButtonGroup.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/ButtonGroup/ButtonGroup.js ***!
+  \***********************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
+
+
+
+
+
+
+ // So we don't have any override priority issue.
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      display: 'inline-flex',
+      borderRadius: theme.shape.borderRadius
+    },
+
+    /* Styles applied to the root element if variant="contained". */
+    contained: {
+      boxShadow: theme.shadows[2]
+    },
+
+    /* Styles applied to the root element if fullWidth={true}. */
+    fullWidth: {
+      width: '100%'
+    },
+
+    /* Styles applied to the children. */
+    grouped: {
+      minWidth: 40,
+      '&:not(:first-child)': {
+        borderTopLeftRadius: 0,
+        borderBottomLeftRadius: 0
+      },
+      '&:not(:last-child)': {
+        borderTopRightRadius: 0,
+        borderBottomRightRadius: 0
+      }
+    },
+
+    /* Styles applied to the children if variant="outlined". */
+    groupedOutlined: {
+      '&:not(:first-child)': {
+        borderLeftColor: 'transparent',
+        marginLeft: -1
+      }
+    },
+
+    /* Styles applied to the children if variant="outlined" & color="primary". */
+    groupedOutlinedPrimary: {
+      '&:hover': {
+        borderColor: theme.palette.primary.main
+      }
+    },
+
+    /* Styles applied to the children if variant="outlined" & color="secondary". */
+    groupedOutlinedSecondary: {
+      '&:hover': {
+        borderColor: theme.palette.secondary.main
+      }
+    },
+
+    /* Styles applied to the children if variant="contained". */
+    groupedContained: {
+      boxShadow: 'none',
+      '&:not(:last-child)': {
+        borderRight: "1px solid ".concat(theme.palette.grey[400]),
+        '&$disabled': {
+          borderRight: "1px solid ".concat(theme.palette.action.disabled)
+        }
+      }
+    },
+
+    /* Styles applied to the children if variant="contained" & color="primary". */
+    groupedContainedPrimary: {
+      '&:not(:last-child)': {
+        borderRight: "1px solid ".concat(theme.palette.primary.dark)
+      }
+    },
+
+    /* Styles applied to the children if variant="contained" & color="secondary". */
+    groupedContainedSecondary: {
+      '&:not(:last-child)': {
+        borderRight: "1px solid ".concat(theme.palette.secondary.dark)
+      }
+    },
+
+    /* Pseudo-class applied to child elements if `disabled={true}`. */
+    disabled: {}
+  };
+};
+var ButtonGroup = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function ButtonGroup(props, ref) {
+  var children = props.children,
+      classes = props.classes,
+      classNameProp = props.className,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'default' : _props$color,
+      _props$component = props.component,
+      Component = _props$component === void 0 ? 'div' : _props$component,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      _props$disableFocusRi = props.disableFocusRipple,
+      disableFocusRipple = _props$disableFocusRi === void 0 ? false : _props$disableFocusRi,
+      _props$disableRipple = props.disableRipple,
+      disableRipple = _props$disableRipple === void 0 ? false : _props$disableRipple,
+      _props$fullWidth = props.fullWidth,
+      fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
+      _props$size = props.size,
+      size = _props$size === void 0 ? 'medium' : _props$size,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'outlined' : _props$variant,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["children", "classes", "className", "color", "component", "disabled", "disableFocusRipple", "disableRipple", "fullWidth", "size", "variant"]);
+
+  var outlined = variant === 'outlined';
+  var contained = variant !== "outlined";
+  var primary = color === 'primary';
+  var secondary = color === 'secondary';
+  var buttonClassName = Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.grouped, outlined && [classes.groupedOutlined, primary && classes.groupedOutlinedPrimary, secondary && classes.groupedOutlinedSecondary], contained && [classes.groupedContained, primary && classes.groupedContainedPrimary, secondary && classes.groupedContainedSecondary], disabled && classes.disabled);
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    role: "group",
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, classNameProp, contained && classes.contained, fullWidth && classes.fullWidth),
+    ref: ref
+  }, other), react__WEBPACK_IMPORTED_MODULE_2___default.a.Children.map(children, function (child) {
+    if (!react__WEBPACK_IMPORTED_MODULE_2___default.a.isValidElement(child)) {
+      return null;
+    }
+
+    if (true) {
+      if (child.type === react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment) {
+        console.error(["Material-UI: the ButtonGroup component doesn't accept a Fragment as a child.", 'Consider providing an array instead.'].join('\n'));
+      }
+    }
+
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.cloneElement(child, {
+      className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(buttonClassName, child.props.className),
+      disabled: child.props.disabled || disabled,
+      color: child.props.color || color,
+      disableFocusRipple: disableFocusRipple,
+      disableRipple: disableRipple,
+      fullWidth: fullWidth,
+      size: child.props.size || size,
+      variant: child.props.variant || variant
+    });
+  }));
+});
+ true ? ButtonGroup.propTypes = {
+  /**
+   * The content of the button group.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node.isRequired,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * The color of the component. It supports those theme colors that make sense for this component.
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['default', 'inherit', 'primary', 'secondary']),
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a DOM element or a component.
+   */
+  component: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.elementType,
+
+  /**
+   * If `true`, the buttons will be disabled.
+   */
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * If `true`, the button keyboard focus ripple will be disabled.
+   * `disableRipple` must also be true.
+   */
+  disableFocusRipple: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * If `true`, the button ripple effect will be disabled.
+   */
+  disableRipple: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * If `true`, the buttons will take up the full width of its container.
+   */
+  fullWidth: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * The size of the button.
+   * `small` is equivalent to the dense button styling.
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['small', 'medium', 'large']),
+
+  /**
+   * The variant to use.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['outlined', 'contained'])
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_5__["default"])(styles, {
+  name: 'MuiButtonGroup'
+})(ButtonGroup));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/ButtonGroup/index.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/ButtonGroup/index.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ButtonGroup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ButtonGroup */ "./node_modules/@material-ui/core/esm/ButtonGroup/ButtonGroup.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _ButtonGroup__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/core/esm/Card/Card.js":
 /*!*********************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/Card/Card.js ***!
@@ -11736,6 +11981,772 @@ SvgIcon.muiName = 'SvgIcon';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SvgIcon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SvgIcon */ "./node_modules/@material-ui/core/esm/SvgIcon/SvgIcon.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _SvgIcon__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/Table/Table.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Table/Table.js ***!
+  \***********************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _TableContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./TableContext */ "./node_modules/@material-ui/core/esm/Table/TableContext.js");
+
+
+
+
+
+
+
+var styles = {
+  /* Styles applied to the root element. */
+  root: {
+    display: 'table',
+    width: '100%',
+    borderCollapse: 'collapse',
+    borderSpacing: 0
+  },
+
+  /* Styles applied to the root element if `stickyHeader={true}`. */
+  stickyHeader: {
+    borderCollapse: 'separate'
+  }
+};
+var Table = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Table(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$component = props.component,
+      Component = _props$component === void 0 ? 'table' : _props$component,
+      _props$padding = props.padding,
+      padding = _props$padding === void 0 ? 'default' : _props$padding,
+      _props$size = props.size,
+      size = _props$size === void 0 ? 'medium' : _props$size,
+      _props$stickyHeader = props.stickyHeader,
+      stickyHeader = _props$stickyHeader === void 0 ? false : _props$stickyHeader,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["classes", "className", "component", "padding", "size", "stickyHeader"]);
+
+  var table = react__WEBPACK_IMPORTED_MODULE_2___default.a.useMemo(function () {
+    return {
+      padding: padding,
+      size: size,
+      stickyHeader: stickyHeader
+    };
+  }, [padding, size, stickyHeader]);
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_TableContext__WEBPACK_IMPORTED_MODULE_6__["default"].Provider, {
+    value: table
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    ref: ref,
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, className, stickyHeader && classes.stickyHeader)
+  }, other)));
+});
+ true ? Table.propTypes = {
+  /**
+   * The content of the table, normally `TableHead` and `TableBody`.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node.isRequired,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a DOM element or a component.
+   */
+  component: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.elementType,
+
+  /**
+   * Allows TableCells to inherit padding of the Table.
+   */
+  padding: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['default', 'checkbox', 'none']),
+
+  /**
+   * Allows TableCells to inherit size of the Table.
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['small', 'medium']),
+
+  /**
+   * Set the header sticky.
+   *
+   * ⚠️ It doesn't work with IE 11.
+   */
+  stickyHeader: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_5__["default"])(styles, {
+  name: 'MuiTable'
+})(Table));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/Table/TableContext.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Table/TableContext.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+/**
+ * @ignore - internal component.
+ */
+
+var TableContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext();
+/* harmony default export */ __webpack_exports__["default"] = (TableContext);
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/Table/Tablelvl2Context.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Table/Tablelvl2Context.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+/**
+ * @ignore - internal component.
+ */
+
+var Tablelvl2Context = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext();
+/* harmony default export */ __webpack_exports__["default"] = (Tablelvl2Context);
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/Table/index.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Table/index.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Table__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Table */ "./node_modules/@material-ui/core/esm/Table/Table.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _Table__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/TableBody/TableBody.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/TableBody/TableBody.js ***!
+  \*******************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _Table_Tablelvl2Context__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Table/Tablelvl2Context */ "./node_modules/@material-ui/core/esm/Table/Tablelvl2Context.js");
+
+
+
+
+
+
+
+var styles = {
+  /* Styles applied to the root element. */
+  root: {
+    display: 'table-row-group'
+  }
+};
+var tablelvl2 = {
+  variant: 'body'
+};
+var TableBody = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function TableBody(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$component = props.component,
+      Component = _props$component === void 0 ? 'tbody' : _props$component,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["classes", "className", "component"]);
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_Table_Tablelvl2Context__WEBPACK_IMPORTED_MODULE_6__["default"].Provider, {
+    value: tablelvl2
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, className),
+    ref: ref
+  }, other)));
+});
+ true ? TableBody.propTypes = {
+  /**
+   * The content of the component, normally `TableRow`.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a DOM element or a component.
+   */
+  component: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.elementType
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_5__["default"])(styles, {
+  name: 'MuiTableBody'
+})(TableBody));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/TableBody/index.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/TableBody/index.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TableBody__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TableBody */ "./node_modules/@material-ui/core/esm/TableBody/TableBody.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _TableBody__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/TableCell/TableCell.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/TableCell/TableCell.js ***!
+  \*******************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _utils_helpers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/helpers */ "./node_modules/@material-ui/core/esm/utils/helpers.js");
+/* harmony import */ var _styles_colorManipulator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/colorManipulator */ "./node_modules/@material-ui/core/esm/styles/colorManipulator.js");
+/* harmony import */ var _Table_TableContext__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Table/TableContext */ "./node_modules/@material-ui/core/esm/Table/TableContext.js");
+/* harmony import */ var _Table_Tablelvl2Context__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Table/Tablelvl2Context */ "./node_modules/@material-ui/core/esm/Table/Tablelvl2Context.js");
+
+
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, theme.typography.body2, {
+      display: 'table-cell',
+      verticalAlign: 'inherit',
+      // Workaround for a rendering bug with spanned columns in Chrome 62.0.
+      // Removes the alpha (sets it to 1), and lightens or darkens the theme color.
+      borderBottom: "1px solid\n    ".concat(theme.palette.type === 'light' ? Object(_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_7__["lighten"])(Object(_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_7__["fade"])(theme.palette.divider, 1), 0.88) : Object(_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_7__["darken"])(Object(_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_7__["fade"])(theme.palette.divider, 1), 0.68)),
+      textAlign: 'left',
+      padding: '14px 40px 14px 16px',
+      '&:last-child': {
+        paddingRight: 16
+      }
+    }),
+
+    /* Styles applied to the root element if `variant="head"` or `context.table.head`. */
+    head: {
+      color: theme.palette.text.secondary,
+      fontSize: theme.typography.pxToRem(12),
+      lineHeight: theme.typography.pxToRem(21),
+      fontWeight: theme.typography.fontWeightMedium
+    },
+
+    /* Styles applied to the root element if `variant="body"` or `context.table.body`. */
+    body: {
+      color: theme.palette.text.primary,
+      fontWeight: theme.typography.fontWeightRegular
+    },
+
+    /* Styles applied to the root element if `variant="footer"` or `context.table.footer`. */
+    footer: {
+      color: theme.palette.text.secondary,
+      lineHeight: theme.typography.pxToRem(21),
+      fontSize: theme.typography.pxToRem(12)
+    },
+
+    /* Styles applied to the root element if `size="small"`. */
+    sizeSmall: {
+      padding: '6px 24px 6px 16px',
+      '&:last-child': {
+        paddingRight: 16
+      },
+      '&$paddingCheckbox': {
+        width: 24,
+        // prevent the checkbox column from growing
+        padding: '0px 12px 0 16px',
+        '&:last-child': {
+          paddingLeft: 12,
+          paddingRight: 16
+        },
+        '& > *': {
+          padding: 0
+        }
+      }
+    },
+
+    /* Styles applied to the root element if `padding="checkbox"`. */
+    paddingCheckbox: {
+      width: 48,
+      // prevent the checkbox column from growing
+      padding: '0 0 0 4px',
+      '&:last-child': {
+        paddingLeft: 0,
+        paddingRight: 4
+      }
+    },
+
+    /* Styles applied to the root element if `padding="none"`. */
+    paddingNone: {
+      padding: 0,
+      '&:last-child': {
+        padding: 0
+      }
+    },
+
+    /* Styles applied to the root element if `align="left"`. */
+    alignLeft: {
+      textAlign: 'left'
+    },
+
+    /* Styles applied to the root element if `align="center"`. */
+    alignCenter: {
+      textAlign: 'center'
+    },
+
+    /* Styles applied to the root element if `align="right"`. */
+    alignRight: {
+      textAlign: 'right',
+      flexDirection: 'row-reverse'
+    },
+
+    /* Styles applied to the root element if `align="justify"`. */
+    alignJustify: {
+      textAlign: 'justify'
+    },
+
+    /* Styles applied to the root element if `context.table.stickyHeader={true}`. */
+    stickyHeader: {
+      position: 'sticky',
+      top: 0,
+      left: 0,
+      zIndex: 1,
+      backgroundColor: theme.palette.background.default
+    }
+  };
+};
+var TableCell = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function TableCell(props, ref) {
+  var _props$align = props.align,
+      align = _props$align === void 0 ? 'inherit' : _props$align,
+      classes = props.classes,
+      className = props.className,
+      component = props.component,
+      paddingProp = props.padding,
+      scopeProp = props.scope,
+      sizeProp = props.size,
+      sortDirection = props.sortDirection,
+      variantProp = props.variant,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__["default"])(props, ["align", "classes", "className", "component", "padding", "scope", "size", "sortDirection", "variant"]);
+
+  var table = react__WEBPACK_IMPORTED_MODULE_2___default.a.useContext(_Table_TableContext__WEBPACK_IMPORTED_MODULE_8__["default"]);
+  var tablelvl2 = react__WEBPACK_IMPORTED_MODULE_2___default.a.useContext(_Table_Tablelvl2Context__WEBPACK_IMPORTED_MODULE_9__["default"]);
+  var Component;
+
+  if (component) {
+    Component = component;
+  } else {
+    Component = tablelvl2 && tablelvl2.variant === 'head' ? 'th' : 'td';
+  }
+
+  var scope = scopeProp;
+
+  if (!scope && tablelvl2 && tablelvl2.variant === 'head') {
+    scope = 'col';
+  }
+
+  var padding = paddingProp || (table && table.padding ? table.padding : 'default');
+  var size = sizeProp || (table && table.size ? table.size : 'medium');
+  var variant = variantProp || tablelvl2 && tablelvl2.variant;
+  var ariaSort = null;
+
+  if (sortDirection) {
+    ariaSort = sortDirection === 'asc' ? 'ascending' : 'descending';
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    ref: ref,
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, className, align !== 'inherit' && classes["align".concat(Object(_utils_helpers__WEBPACK_IMPORTED_MODULE_6__["capitalize"])(align))], padding !== 'default' && classes["padding".concat(Object(_utils_helpers__WEBPACK_IMPORTED_MODULE_6__["capitalize"])(padding))], size !== 'medium' && classes["size".concat(Object(_utils_helpers__WEBPACK_IMPORTED_MODULE_6__["capitalize"])(size))], {
+      head: [classes.head, table && table.stickyHeader && classes.stickyHeader],
+      body: classes.body,
+      footer: classes.footer
+    }[variant]),
+    "aria-sort": ariaSort,
+    scope: scope
+  }, other));
+});
+ true ? TableCell.propTypes = {
+  /**
+   * Set the text-align on the table cell content.
+   *
+   * Monetary or generally number fields **should be right aligned** as that allows
+   * you to add them up quickly in your head without having to worry about decimals.
+   */
+  align: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['inherit', 'left', 'center', 'right', 'justify']),
+
+  /**
+   * The table cell contents.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a DOM element or a component.
+   */
+  component: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.elementType,
+
+  /**
+   * Sets the padding applied to the cell.
+   * By default, the Table parent component set the value (`default`).
+   */
+  padding: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['default', 'checkbox', 'none']),
+
+  /**
+   * Set scope attribute.
+   */
+  scope: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * Specify the size of the cell.
+   * By default, the Table parent component set the value (`medium`).
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['small', 'medium']),
+
+  /**
+   * Set aria-sort direction.
+   */
+  sortDirection: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['asc', 'desc', false]),
+
+  /**
+   * Specify the cell type.
+   * By default, the TableHead, TableBody or TableFooter parent component set the value.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['head', 'body', 'footer'])
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_5__["default"])(styles, {
+  name: 'MuiTableCell'
+})(TableCell));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/TableCell/index.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/TableCell/index.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TableCell__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TableCell */ "./node_modules/@material-ui/core/esm/TableCell/TableCell.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _TableCell__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/TableHead/TableHead.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/TableHead/TableHead.js ***!
+  \*******************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _Table_Tablelvl2Context__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Table/Tablelvl2Context */ "./node_modules/@material-ui/core/esm/Table/Tablelvl2Context.js");
+
+
+
+
+
+
+
+var styles = {
+  /* Styles applied to the root element. */
+  root: {
+    display: 'table-header-group'
+  }
+};
+var tablelvl2 = {
+  variant: 'head'
+};
+var TableHead = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function TableHead(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$component = props.component,
+      Component = _props$component === void 0 ? 'thead' : _props$component,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["classes", "className", "component"]);
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_Table_Tablelvl2Context__WEBPACK_IMPORTED_MODULE_6__["default"].Provider, {
+    value: tablelvl2
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, className),
+    ref: ref
+  }, other)));
+});
+ true ? TableHead.propTypes = {
+  /**
+   * The content of the component, normally `TableRow`.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a DOM element or a component.
+   */
+  component: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.elementType
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_5__["default"])(styles, {
+  name: 'MuiTableHead'
+})(TableHead));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/TableHead/index.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/TableHead/index.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TableHead__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TableHead */ "./node_modules/@material-ui/core/esm/TableHead/TableHead.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _TableHead__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/TableRow/TableRow.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/TableRow/TableRow.js ***!
+  \*****************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _Table_Tablelvl2Context__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Table/Tablelvl2Context */ "./node_modules/@material-ui/core/esm/Table/Tablelvl2Context.js");
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      color: 'inherit',
+      display: 'table-row',
+      verticalAlign: 'middle',
+      // We disable the focus ring for mouse, touch and keyboard users.
+      outline: 0,
+      '&$selected': {
+        backgroundColor: theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.04)' // grey[100]
+        : 'rgba(255, 255, 255, 0.08)'
+      },
+      '&$hover:hover': {
+        backgroundColor: theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.07)' // grey[200]
+        : 'rgba(255, 255, 255, 0.14)'
+      }
+    },
+
+    /* Pseudo-class applied to the root element if `selected={true}`. */
+    selected: {},
+
+    /* Pseudo-class applied to the root element if `hover={true}`. */
+    hover: {},
+
+    /* Styles applied to the root element if table variant="head". */
+    head: {},
+
+    /* Styles applied to the root element if table variant="footer". */
+    footer: {}
+  };
+};
+/**
+ * Will automatically set dynamic row height
+ * based on the material table element parent (head, body, etc).
+ */
+
+var TableRow = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function TableRow(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$component = props.component,
+      Component = _props$component === void 0 ? 'tr' : _props$component,
+      _props$hover = props.hover,
+      hover = _props$hover === void 0 ? false : _props$hover,
+      _props$selected = props.selected,
+      selected = _props$selected === void 0 ? false : _props$selected,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["classes", "className", "component", "hover", "selected"]);
+
+  var tablelvl2 = react__WEBPACK_IMPORTED_MODULE_2___default.a.useContext(_Table_Tablelvl2Context__WEBPACK_IMPORTED_MODULE_6__["default"]);
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    ref: ref,
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, className, tablelvl2 && {
+      head: classes.head,
+      footer: classes.footer
+    }[tablelvl2.variant], hover && classes.hover, selected && classes.selected)
+  }, other));
+});
+ true ? TableRow.propTypes = {
+  /**
+   * Should be valid <tr> children such as `TableCell`.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a DOM element or a component.
+   */
+  component: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.elementType,
+
+  /**
+   * If `true`, the table row will shade on hover.
+   */
+  hover: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * If `true`, the table row will have the selected shading.
+   */
+  selected: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_5__["default"])(styles, {
+  name: 'MuiTableRow'
+})(TableRow));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/core/esm/TableRow/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/TableRow/index.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TableRow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TableRow */ "./node_modules/@material-ui/core/esm/TableRow/TableRow.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _TableRow__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
 
 
@@ -60973,9 +61984,10 @@ var aShowPurchase = function aShowPurchase(item) {
   };
 }; // muestra la compra
 
-var aShowHome = function aShowHome(item) {
+var aShowHome = function aShowHome(clean) {
   return {
-    type: _const__WEBPACK_IMPORTED_MODULE_0__["SHOW_HOME"]
+    type: _const__WEBPACK_IMPORTED_MODULE_0__["SHOW_HOME"],
+    clean: clean
   };
 }; // muestra el detalle del item
 
@@ -61140,13 +62152,38 @@ var initialState = {
       }
 
     case _const__WEBPACK_IMPORTED_MODULE_0__["SHOW_PURCHASE"]:
-      return newState;
+      {
+        // muestra la pagina de compra
+        newState.view = "purchase";
+        _redux_store__WEBPACK_IMPORTED_MODULE_2__["history"].push('/purchase'); // se coloca en la pagina de compra
+
+        return newState;
+      }
 
     case _const__WEBPACK_IMPORTED_MODULE_0__["SHOW_HOME"]:
-      return newState;
+      {
+        // regresa a la pagina de home
+        newState.view = "home";
+
+        if (action.clean) {
+          newState.purchase = [];
+          newState.itemsCount = 0;
+        }
+
+        _redux_store__WEBPACK_IMPORTED_MODULE_2__["history"].push('/home'); // se coloca en la pagina de compra
+
+        return newState;
+      }
 
     case _const__WEBPACK_IMPORTED_MODULE_0__["SHOW_ITEM"]:
-      return newState;
+      {
+        // muestra la pagina de items
+        newState.view = "item";
+        newState.curitem = _objectSpread({}, action.item);
+        _redux_store__WEBPACK_IMPORTED_MODULE_2__["history"].push('/item'); // se coloca en la pagina de compra
+
+        return newState;
+      }
 
     case _const__WEBPACK_IMPORTED_MODULE_0__["ADD_PURCHASE_ITEM"]:
       {
@@ -61489,7 +62526,9 @@ var Header = function Header(props) {
   };
 
   var ShowPurcharse = function ShowPurcharse() {
-    props.aShowPurchase();
+    if (props.itemsCount > 0) {
+      props.aShowPurchase();
+    }
   }; // si no esta autentificado no muestra la cabecera
 
 
@@ -61517,8 +62556,7 @@ var Header = function Header(props) {
       color: "secondary",
       className: "header-badge"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_Mail__WEBPACK_IMPORTED_MODULE_9___default.a, null)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_12__["default"], {
-      m: 1,
-      onClick: ShowPurcharse
+      m: 1
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7__["default"], {
       "aria-label": "accessTime"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Badge__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -61526,7 +62564,8 @@ var Header = function Header(props) {
       color: "secondary",
       className: "header-badge"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_AccessTime__WEBPACK_IMPORTED_MODULE_10___default.a, null)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_12__["default"], {
-      m: 1
+      m: 1,
+      onClick: ShowPurcharse
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_7__["default"], {
       "aria-label": "cart"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Badge__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -62096,13 +63135,183 @@ var mapDispatchToProps = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _redux_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../redux/actions */ "./src/redux/actions.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_Table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Table */ "./node_modules/@material-ui/core/esm/Table/index.js");
+/* harmony import */ var _material_ui_core_TableBody__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/TableBody */ "./node_modules/@material-ui/core/esm/TableBody/index.js");
+/* harmony import */ var _material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/TableCell */ "./node_modules/@material-ui/core/esm/TableCell/index.js");
+/* harmony import */ var _material_ui_core_TableHead__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/TableHead */ "./node_modules/@material-ui/core/esm/TableHead/index.js");
+/* harmony import */ var _material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/TableRow */ "./node_modules/@material-ui/core/esm/TableRow/index.js");
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js");
+/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/CssBaseline */ "./node_modules/@material-ui/core/esm/CssBaseline/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
+/* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/Container */ "./node_modules/@material-ui/core/esm/Container/index.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
+/* harmony import */ var _material_ui_core_ButtonGroup__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/core/ButtonGroup */ "./node_modules/@material-ui/core/esm/ButtonGroup/index.js");
+/* harmony import */ var _material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/core/Avatar */ "./node_modules/@material-ui/core/esm/Avatar/index.js");
+var _this = undefined;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-var Purcharse = function Purcharse() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Purcharsedddd");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var TAX_RATE = 0.12; // porcentaje de taxes
+
+var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])(function (theme) {
+  return {
+    root: {
+      width: '100%',
+      marginTop: theme.spacing(3),
+      overflowX: 'auto'
+    },
+    table: {
+      minWidth: 700
+    },
+    avatar: {
+      margin: 10
+    }
+  };
+}); // componente que muestra el total de la compra
+
+var Purcharse = function Purcharse(props) {
+  var subtotal = 0;
+  var values = props.items.map(function (item) {
+    var total = Math.round(item.purchase * item.price * 100) / 100;
+    subtotal += total;
+    return _objectSpread({}, item, {
+      total: total
+    });
+  });
+  var taxes = TAX_RATE * subtotal;
+  var total = taxes + subtotal;
+
+  function ccyFormat(num) {
+    return "".concat(num.toFixed(2));
+  }
+
+  function clickButton(clean) {
+    props.aShowHome(clean);
+  }
+
+  function table() {
+    // obtiene la tabla con los valores
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      className: classes.root
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Table__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      className: classes.table
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableHead__WEBPACK_IMPORTED_MODULE_7__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_8__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], null, "Producto"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      align: "right"
+    }, "Cantidad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      align: "right"
+    }, "Precio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      align: "right"
+    }, "Total"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableBody__WEBPACK_IMPORTED_MODULE_5__["default"], null, values.map(function (row) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        key: row.name
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        className: "purchase-item"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_11__["default"], {
+        container: true,
+        justify: "flex-start",
+        alignItems: "center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_11__["default"], {
+        item: true,
+        xs: 4
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_16__["default"], {
+        alt: "Remy Sharp",
+        src: "./img/" + row.img,
+        className: classes.avatar
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_11__["default"], {
+        item: true,
+        xs: 4
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", row.name)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        align: "right"
+      }, row.purchase), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        align: "right"
+      }, ccyFormat(row.price)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        align: "right"
+      }, ccyFormat(row.total)));
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_8__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      rowSpan: 3
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      colSpan: 2,
+      className: "purchase-bold"
+    }, "Subtotal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      align: "right"
+    }, ccyFormat(subtotal))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_8__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      className: "purchase-bold"
+    }, "Tax"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      align: "right"
+    }, "".concat((TAX_RATE * 100).toFixed(0), " %")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      align: "right"
+    }, ccyFormat(taxes))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_8__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      colSpan: 2,
+      className: "purchase-total"
+    }, "Total"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      align: "right",
+      className: "purchase-total"
+    }, ccyFormat(total) + ' USD')))));
+  }
+
+  var classes = useStyles();
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_10__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "items-hero-content"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_13__["default"], {
+    maxWidth: "md"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    component: "h1",
+    variant: "h2",
+    align: "center",
+    color: "textPrimary",
+    gutterBottom: true
+  }, "Factura"), table(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "purchase-buttons"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    item: true,
+    style: {
+      textAlign: 'right'
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_ButtonGroup__WEBPACK_IMPORTED_MODULE_15__["default"], {
+    color: "primary",
+    "aria-label": "outlined primary button group"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_14__["default"], {
+    onClick: clickButton.bind(_this, false)
+  }, "Cancelar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_14__["default"], {
+    onClick: clickButton.bind(_this, true)
+  }, "Pagar"))))))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Purcharse);
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    items: state.tienda.purchase
+  };
+};
+
+var mapDispatchToProps = {
+  aShowHome: _redux_actions__WEBPACK_IMPORTED_MODULE_2__["aShowHome"]
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(Purcharse));
 
 /***/ })
 

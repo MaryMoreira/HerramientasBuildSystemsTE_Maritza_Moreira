@@ -106,3 +106,20 @@
     background-color: #fff;
     padding: 9;
 }
+
+.purchase-total{
+    font-size: 1.8em !important;
+    font-weight: bold !important;
+}
+
+.purchase-bold{
+    font-weight: bold !important;
+}
+
+.purchase-buttons{
+    margin-top: 12px;
+}
+
+.purchase-item{
+    padding: 0;
+}
