@@ -5,6 +5,8 @@ export const SHOW_PURCHASE = "ShowPurcharse";
 export const SHOW_HOME     = "ShowHome";
 export const SHOW_ITEM     = "ShowItem";
 
+export const PURCHASE      = "Purchase";
+
 export const FILTER_ITEMS  = "FilterItems";
 
 export const ADD_PURCHASE_ITEM  = "AddPurchaseItem";

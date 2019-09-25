@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { aFilterItems, aAddPurchaseItem, aChangeQuantityItem } from '../redux/actions';
+import { aFilterItems, aShowItem, aAddPurchaseItem, aChangeQuantityItem } from '../redux/actions';
 
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
@@ -49,8 +49,14 @@ class Home extends React.Component {
     this.props.aChangeQuantityItem(item, value);
   }
 
+  // añade un item al carrito de compras
   addPurchaseItem = (item) => {
     this.props.aAddPurchaseItem(item);
+  }
+
+  // muestra el detalle del item
+  showDetailItem = (item) => {
+    this.props.aShowItem(item);
   }
 
 
@@ -96,7 +102,7 @@ class Home extends React.Component {
                             <CardActions>
                                 <Grid container spacing={2} >
                                     <Grid item xs={12} sm={6}>
-                                        <Button  variant="contained" size="small" color="primary">
+                                        <Button  variant="contained" size="small" color="primary" onClick={this.showDetailItem.bind(this, item)}>
                                             Ver Más
                                         </Button>
                                     </Grid>
@@ -145,6 +151,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     aFilterItems,
+    aShowItem,
     aAddPurchaseItem,
     aChangeQuantityItem
 };

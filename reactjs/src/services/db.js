@@ -44,8 +44,8 @@ class DB {
         let products = this.db.ref('product');
 
         // verifica si tiene el usuario
-        products.orderByChild("id").on("child_added", (snapshot) => {
-            this.products.push({...snapshot.val(), purchase:1});
+        products.orderByChild("id").on("child_added", (snapshot, prevId) => {
+            this.products.push({...snapshot.val(), id: snapshot.key, purchase:1});
             console.log("Productos: ", this.products);
         });
     }
@@ -67,6 +67,27 @@ class DB {
             return this.products;
         }
         return this.products.filter ( p => p.name.toUpperCase().startsWith(filter.toUpperCase()) );
+    }
+
+    // realiza el update de los productos
+    updateProducts(items){
+        if(items.length == 0){
+            return this.products;
+        }
+        this.setCollections(); // obtiene la actual informacion de la base de datos
+        let productCollection = this.db.ref('product');
+
+        items.forEach( o => { // actualiza el stock de los items comprados
+            let id, c = this.products.find( f => f.name == o.name);
+            if(c){
+                id = c.id; delete c.id;
+                c.stock -= o.purchase;
+                // actualiza el objeto en la base de datos
+                productCollection.child(id).set(c);
+                c.id = id;
+            }
+        })
+        return this.products.map ( p => p ); // crea un nuevo mapa de arreglos
     }
 }
 

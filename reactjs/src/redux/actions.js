@@ -25,6 +25,9 @@ export const aShowHome = (clean) => ({
     clean
 });
 
+export const aPurchase = () => ({
+    type: ACTION.PURCHASE,
+});
 
 // muestra el detalle del item
 export const aShowItem = (item) => ({

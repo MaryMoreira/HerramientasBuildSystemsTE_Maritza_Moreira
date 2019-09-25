@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { connect } from "react-redux";
-import { aShowHome } from '../redux/actions';
+import { aShowHome, aPurchase } from '../redux/actions';
+
 
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -53,8 +54,12 @@ const Purcharse = (props) => {
     return `${num.toFixed(2)}`;
   }
 
-  function clickButton(clean){
-    props.aShowHome(clean);
+  function clickButton(cancel){
+    if(cancel){
+      props.aShowHome(true);
+    }else{
+      props.aPurchase();
+    }
   }
 
   function table(){ // obtiene la tabla con los valores
@@ -94,7 +99,7 @@ const Purcharse = (props) => {
               <TableCell align="right">{ccyFormat(subtotal)}</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className="purchase-bold">Tax</TableCell>
+              <TableCell className="purchase-bold">Impuesto</TableCell>
               <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
               <TableCell align="right">{ccyFormat(taxes)}</TableCell>
             </TableRow>
@@ -127,8 +132,8 @@ const Purcharse = (props) => {
                     <div className="purchase-buttons">
                       <Grid item style={{textAlign: 'right'}}>
                         <ButtonGroup color="primary" aria-label="outlined primary button group">
-                          <Button onClick={clickButton.bind(this, false)}>Cancelar</Button>
-                          <Button onClick={clickButton.bind(this, true)}>Pagar</Button>
+                          <Button onClick={clickButton.bind(this, true)}>Cancelar</Button>
+                          <Button onClick={clickButton.bind(this, false)}>Pagar</Button>
                         </ButtonGroup>
                       </Grid>
                     </div>
@@ -146,7 +151,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  aShowHome
+  aShowHome,
+  aPurchase
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Purcharse);

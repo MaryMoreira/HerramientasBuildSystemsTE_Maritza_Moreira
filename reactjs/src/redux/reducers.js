@@ -12,17 +12,18 @@ let initialState =  {
       loginMsg: "",
       filter : "",
       itemsCount : 0,
-      curitem : {},
+      curItem : {},
       items: [],
       purchase : []
 };
 
+// reductor de la ienda online
 export default (state = initialState, action) => {
     let newState = {...state};
 
     switch (action.type) {
 
-      case ACTION.SEND_LOGIN:{
+      case ACTION.SEND_LOGIN:{ // realiza el login
         if(DB.existUser(action.user, action.pass)){
           newState.loginMsg = "";
           newState.filter   = "";
@@ -39,7 +40,7 @@ export default (state = initialState, action) => {
         return  newState;
       }
 
-      case ACTION.SEND_LOGOUT:{
+      case ACTION.SEND_LOGOUT:{ // realiza el logout
         newState.loginMsg = "";
         newState.filter   = "";
         newState.isAuth   = false;
@@ -83,12 +84,22 @@ export default (state = initialState, action) => {
 
       case ACTION.SHOW_ITEM:{ // muestra la pagina de items
         newState.view    = "item";
-        newState.curitem = {...action.item};
-        history.push('/item'); // se coloca en la pagina de compra
+        newState.curItem = {...action.item};
+        history.push('/item'); // se coloca en la pagina del detalle del item
         return newState;
       }
 
-      case ACTION.ADD_PURCHASE_ITEM: {
+      case ACTION.PURCHASE: { // realiza la compra
+        if(newState.purchase.length > 0){
+          newState.items      = DB.updateProducts(newState.purchase);
+          newState.purchase   = [];
+          newState.itemsCount = 0;
+        }
+        history.push('/home'); // se coloca en la pagina inicial
+        return newState;
+      }
+
+      case ACTION.ADD_PURCHASE_ITEM: { // añade un item al carrito de compras
         let filter = newState.purchase.filter( item => item.name == action.item.name);
 
         if(filter.length == 0){
@@ -98,7 +109,7 @@ export default (state = initialState, action) => {
         }else{
           newState.purchase = newState.purchase.map ( item => {
             if(item.name == action.item.name){
-              item.purchase += action.item.purchase;
+              item.purchase = action.item.purchase;
             }
             return {...item}
            } );
@@ -106,7 +117,7 @@ export default (state = initialState, action) => {
         return newState;
       }
 
-      case ACTION.CHANGE_QUANTITY_ITEM:
+      case ACTION.CHANGE_QUANTITY_ITEM: // cambia la cantidad del item a comprar
         newState.items = newState.items.map( item => {
             if(item.name == action.item.name){
               item.purchase = action.amount;
@@ -115,7 +126,7 @@ export default (state = initialState, action) => {
         })
         return newState;
 
-      default:
+      default: // se ubica en la pagina de inicio
         history.push('/');
         return state;
     }
