@@ -6,16 +6,18 @@ import HomePage from '../view/Home';
 import ItemPage  from '../view/Item';
 import PurchasePage from '../view//Purchase';
 
+import * as ROUTE from './const';
+
 
 const AppRoutes = () => (
 
       <div>
           <Switch>
-            <Route path="/login" component={LoginPage} exact/>
-            <Route path="/home" component={HomePage} exact/>
-            <Route path="/item" component={ItemPage} exact/>
-            <Route path="/purchase" component={PurchasePage} exact/>
-            <Route path="/" component={LoginPage} />
+            <Route path={ROUTE.LOGIN}    component={LoginPage} exact/>
+            <Route path={ROUTE.HOME}     component={HomePage} exact/>
+            <Route path={ROUTE.ITEM}     component={ItemPage} exact/>
+            <Route path={ROUTE.PURCHASE} component={PurchasePage} exact/>
+            <Route path={ROUTE.INIT}     component={LoginPage} />
           </Switch>
       </div>
 

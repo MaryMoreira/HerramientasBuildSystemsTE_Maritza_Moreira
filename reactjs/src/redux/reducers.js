@@ -3,6 +3,8 @@ import * as ACTION from './const';
 import DB from '../services/db';
 import { history } from '../redux/store';
 
+import * as ROUTE from '../routes/const';
+
 let initialState =  {
       view : "login",
       isAuth: false,
@@ -30,9 +32,9 @@ export default (state = initialState, action) => {
           newState.isAuth   = true;
           newState.user     = action.user;
           newState.pass     = action.pass;
-          newState.view     = "home";
+          newState.view     = ROUTE.HOME;
           newState.items    = DB.filterProducts(newState.filter);
-          history.push('/home'); // se coloca en la pagina de home
+          history.push(ROUTE.HOME); // se coloca en la pagina de home
         }else{
           newState.loginMsg = "Ingrese credenciales validas!!!";
           newState.isAuth   = false;
@@ -46,9 +48,9 @@ export default (state = initialState, action) => {
         newState.isAuth   = false;
         newState.user     = "";
         newState.pass     = "";
-        newState.view     = "login";
+        newState.view     = ROUTE.INIT;
         newState.items    = [];
-        history.push('/'); // se coloca en la pagina de login
+        history.push(ROUTE.INIT); // se coloca en la pagina de login
         return newState;
       }
 
@@ -67,25 +69,25 @@ export default (state = initialState, action) => {
       }
 
       case ACTION.SHOW_PURCHASE:{ // muestra la pagina de compra
-        newState.view  = "purchase";
-        history.push('/purchase'); // se coloca en la pagina de compra
+        newState.view  = ROUTE.PURCHASE;
+        history.push(ROUTE.PURCHASE); // se coloca en la pagina de compra
         return newState;
       }
 
       case ACTION.SHOW_HOME:{ // regresa a la pagina de home
-        newState.view  = "home";
+        newState.view  = ROUTE.HOME;
         if(action.clean){
           newState.purchase   = [];
           newState.itemsCount = 0;
         }
-        history.push('/home'); // se coloca en la pagina de compra
+        history.push(ROUTE.HOME); // se coloca en la pagina de compra
         return newState;
       }
 
       case ACTION.SHOW_ITEM:{ // muestra la pagina de items
-        newState.view    = "item";
+        newState.view    = ROUTE.ITEM;
         newState.curItem = {...action.item};
-        history.push('/item'); // se coloca en la pagina del detalle del item
+        history.push(ROUTE.ITEM); // se coloca en la pagina del detalle del item
         return newState;
       }
 
@@ -95,7 +97,8 @@ export default (state = initialState, action) => {
           newState.purchase   = [];
           newState.itemsCount = 0;
         }
-        history.push('/home'); // se coloca en la pagina inicial
+        newState.view = ROUTE.HOME;
+        history.push(ROUTE.HOME); // se coloca en la pagina inicial
         return newState;
       }
 
@@ -127,7 +130,7 @@ export default (state = initialState, action) => {
         return newState;
 
       default: // se ubica en la pagina de inicio
-        history.push('/');
+        history.push(ROUTE.INIT);
         return state;
     }
   };
