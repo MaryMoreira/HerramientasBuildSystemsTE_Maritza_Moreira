@@ -7,9 +7,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class DbService {
 
+  // arreglos de usuarios y productos
   private users    = [];
   private products = [];
 
+  //// constructor
   constructor(private db: AngularFirestore) {
         this.setCollections();
    }
