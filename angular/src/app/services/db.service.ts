@@ -20,7 +20,7 @@ export class DbService {
    private setCollections(){
 
     // obtiene los usuarios
-    this.db.collection('user').snapshotChanges().subscribe( data => {
+    this.db.collection('users').snapshotChanges().subscribe( data => {
         console.log("datos", data);
         this.users = data.map( e => {
             return {
@@ -33,7 +33,7 @@ export class DbService {
     });
 
     // obtiene los productos
-    this.db.collection('product').snapshotChanges().subscribe( data => {
+    this.db.collection('products').snapshotChanges().subscribe( data => {
         this.products = data.map( e => {
             return {
               id    : e.payload.doc.id,
@@ -52,7 +52,7 @@ export class DbService {
    existUser(user: String, pass: String){
       let exist = false;
       this.users.forEach ( u => {
-          if(u.email == user && u.pass == pass){
+          if(u.name == user && u.pass == pass){
               exist = true;
           }
       });

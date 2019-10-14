@@ -1,21 +1,24 @@
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center" style="flex-direction: row; box-sizing: border-box; display: flex; place-content: center; align-items: center;">
 
     <mat-card class="box">
         <mat-card-header>
-            <mat-card-title>Log in</mat-card-title>
+            <mat-card-title>LOGIN</mat-card-title>
         </mat-card-header>
 
         <form class="example-form">
         <mat-card-content>
             <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username">
+            <input matInput placeholder="Email" #mailInput>
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-            <input matInput placeholder="Password">
+            <input matInput placeholder="Contrasena" #passInput>
             </mat-form-field>
+
+            <mat-hint align="start" class="login-error"><strong>{{msg}}</strong> </mat-hint>
+
         </mat-card-content>
-        <button mat-stroked-button color="accent" class="btn-block">Log in</button>
+        <button mat-raised-button color="primary" class="btn-block" (click)="login()">Aceptar</button>
         </form>
     </mat-card>
 

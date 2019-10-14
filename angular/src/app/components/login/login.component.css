@@ -1,5 +1,6 @@
 .login-wrapper {
     height: 100%;
+    margin-top: 104px;
   }
 
   .positronx {
@@ -68,6 +69,10 @@
   .login-wrapper mat-card-header mat-card-title {
     font-size: 30px;
     margin: 0;
+  }
+
+  .login-error{
+    color: red;
   }
 
   .login-wrapper .mat-card {

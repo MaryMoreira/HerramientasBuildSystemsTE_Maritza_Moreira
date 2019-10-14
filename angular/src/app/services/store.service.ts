@@ -5,7 +5,6 @@ import { Observable, Subject } from 'rxjs';
 const initStore = {
   isAuth     : false,
   update     : 0,
-  loginMsg   : "",
   itemsCount : 0,
   curItem    : {},
   items      : [],
@@ -42,6 +41,7 @@ export class StoreService {
     this.subject.next({...this.store});
   }
 
+  // obtiene la observable
   getStore(): Observable<Object> {
         return this.subject.asObservable();
   }
