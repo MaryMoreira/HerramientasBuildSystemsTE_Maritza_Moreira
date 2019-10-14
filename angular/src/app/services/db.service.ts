@@ -61,10 +61,13 @@ export class DbService {
 
    // obtiene los productos filtrados
     filterProducts(filter : string){
+        let prods:Array<Object>;
         if(!filter || filter.length == 0){
-            return this.products;
+            prods = this.products;
+        }else{
+            prods = this.products.filter ( p => p.name.toUpperCase().startsWith(filter.toUpperCase()) );
         }
-        return this.products.filter ( p => p.name.toUpperCase().startsWith(filter.toUpperCase()) );
+        return prods.sort( (a, b) => a['name'].localeCompare(b['name']));
     }
 
     // realiza el update de los productos
