@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     // se suscribe a los eventos del store
-    this.store.getStore().subscribe( store => {
+    this.store.subscribe( 'login', store => {
       console.log("Actual store", store);
     })
   }

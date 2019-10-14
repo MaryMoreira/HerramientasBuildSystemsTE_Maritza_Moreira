@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.data = { isAuth: false, itemsCount : 0 };
     // se suscribe a los eventos del store
-    this.store.getStore().subscribe( store => {
+    this.store.subscribe( 'header', store => {
       this.data = store;
     })
   }

@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     this.firstTime = true;
     this.strFilter = "";
     // se suscribe a los eventos del store
-    this.store.getStore().subscribe( data => {
+    this.store.subscribe('home', data => {
         // si esta autentificado, coloca los datos del carrito
         if(data['isAuth']){
           if(this.firstTime){

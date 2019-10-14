@@ -17,6 +17,7 @@ const initStore = {
 export class StoreService {
   // la varible que va a contralar a todo la aplicacion
   private store = {};
+  private callbacks = [];
 
   // mensaje que controlara el store
   private subject = new Subject<Object>();
@@ -24,6 +25,17 @@ export class StoreService {
   // constructor
   constructor() {
     this.clearStore();
+    this.init();
+   }
+
+   private init(){
+    // inicia las subscripciones
+    this.subject.asObservable().subscribe( (data) => {
+        this.callbacks.forEach( s => {
+            s.callback(data); // llama a la susbscripcion
+        });
+    });
+
    }
 
   // cambia las variables del store
@@ -41,9 +53,15 @@ export class StoreService {
     this.subject.next({...this.store});
   }
 
-  // obtiene la observable
-  getStore(): Observable<Object> {
-        return this.subject.asObservable();
+  // se suscribe a algun cambio del store
+  subscribe(id:string, callback:Function){
+    let subs = this.callbacks.find( o => o['id'] == id);
+    if(subs){
+      subs['callback'] = callback;
+    }else{
+      this.callbacks.push({id, callback});
+      callback(this.store);
+    }
   }
 
   // limpia el store
