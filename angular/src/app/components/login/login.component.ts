@@ -25,6 +25,9 @@ export class LoginComponent implements OnInit {
   pass:string
 
   ngOnInit() {
+    this.mailInput.nativeElement.value = "mary@nextui.com";
+    this.passInput.nativeElement.value = "mary";
+    
     // se suscribe a los eventos del store
     this.store.subscribe( 'login', store => {
       console.log("Actual store", store);

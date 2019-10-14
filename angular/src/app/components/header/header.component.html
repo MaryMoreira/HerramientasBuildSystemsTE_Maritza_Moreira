@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <span>NextUI</span>
+        <span>{{data.isAuth ? 'Tienda Online' : 'NextUI'}}</span>
         <span class="spacer"></span>
         <div *ngIf="!data.isAuth">
             <a  mat-button  routerLink="/login">Login</a>
@@ -11,7 +11,7 @@
             <mat-icon class="header-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
         </div>    
         <div *ngIf="data.isAuth">
-            <a  mat-button  routerLink="/login">Logout</a>
+            <a  mat-button  (click)="logout()">Logout</a>
         </div>
     </mat-toolbar-row>
 </mat-toolbar>

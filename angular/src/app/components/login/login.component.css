@@ -52,6 +52,7 @@
     min-width: 100%;
     max-width: 300px;
     width: 100%;
+    margin-bottom: 20px;
   }
 
   .login-wrapper .example-full-width,

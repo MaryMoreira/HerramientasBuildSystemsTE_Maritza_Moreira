@@ -33,4 +33,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/purchase']);
   }
 
+  // realiza el logout
+  logout(){
+    this.store.clearStore(); // limpia el servicio del store
+  }
+
 }

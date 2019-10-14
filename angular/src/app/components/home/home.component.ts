@@ -20,25 +20,37 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.firstTime = true;
     this.strFilter = "";
+    this.products  = this.db.filterProducts(this.strFilter); // obtiene los productos
+    console.log("Init home");
+
     // se suscribe a los eventos del store
     this.store.subscribe('home', data => {
         // si esta autentificado, coloca los datos del carrito
-        if(data['isAuth']){
-          if(this.firstTime){
-            this.products = this.db.filterProducts(this.strFilter); // obtiene los productos
-          }
-        }else{
+        if(!data['isAuth']){
           this.router.navigate(['/login']);
         }
     })
   }
 
   // captura el keydown del buscador
-  keyDownSearch(event){
-    if (event.key === "Enter") {
-      console.log(event);
-    }
+  onSearchChange(searchValue: string): void {  
+    this.products  = this.db.filterProducts(searchValue); // obtiene los productos
   }
 
+  // incrementa la cantidad del producto
+  onNumberItemChange(value: string): void {  
+    
+  }
+
+  // mostrar detalles del producto
+  showProductDetail(prod:Object){
+    this.store.changeStore({curItem:prod});
+    this.router.navigate(['/item']);
+  }
+
+  // anadir item al carrito
+  addProduct(prod:Object){
+    
+  }
 
 }

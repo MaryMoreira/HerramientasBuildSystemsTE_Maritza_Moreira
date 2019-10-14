@@ -2,13 +2,62 @@
     <div>
         
         <div class="home-title">
-            Catalogo
+
+            <mat-grid-list cols="3" rowHeight="100px">
+                <mat-grid-tile>
+                    <div class="home-catalogo"> Catálogo </div>                        
+                </mat-grid-tile>
+                <mat-grid-tile>
+                        <div class="home-catalogo"></div>                        
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <form class="home-search">
+                        <mat-form-field class="home-search-input">
+                            <input type="text" matInput placeholder="buscar" (input)="onSearchChange($event.target.value)">
+                            <mat-icon matSuffix>search</mat-icon>
+                        </mat-form-field>                
+                    </form>
+                </mat-grid-tile>
+            </mat-grid-list>
         </div>
 
         <div class="home-items">
-            <mat-grid-list cols="3" rowHeight="2:1" ng-repeat="prod in products">
+            <mat-grid-list cols="3" ng-repeat="prod in products">
+ 
+                <mat-grid-tile *ngFor="let prod of products" >
 
-                <mat-grid-tile > 1</mat-grid-tile>
+                    <mat-card class="home-card">          
+                        <img mat-card-image src="{{'assets/img/' + prod.img}}" alt="{{[prod.name]}}" style="height: 55%">
+                        <mat-card-content style="height: 15%">                           
+                            <h2>{{prod.name}}</h2>
+                            <p>
+                                <b>Precio : $</b>
+                                {{prod.price}}
+                                <br />
+                                <b>Unidades disponibles:</b>
+                                {{prod.stock}}
+                            </p>                            
+                        </mat-card-content>
+                        <mat-card-actions style="height: 25%">
+                            <mat-grid-list cols="4" rowHeight="100px">
+                                <mat-grid-tile>
+                                    <button mat-raised-button color="primary">Ver más</button>                     
+                                </mat-grid-tile>
+                                <mat-grid-tile>
+                                    <div></div>
+                                </mat-grid-tile>
+                                <mat-grid-tile>
+                                    <button mat-raised-button color="warn">Añadir</button>                  
+                                </mat-grid-tile>
+                                <mat-grid-tile>
+                                    <input type="number" matInput value="{{prod.purchase}}" style="margin:0 14px" max="10" min="1" onkeydown="return false" />
+                                </mat-grid-tile>
+                            </mat-grid-list>
+                        </mat-card-actions>
+                    </mat-card>
+
+                </mat-grid-tile>
+                
 
             </mat-grid-list>
         </div>

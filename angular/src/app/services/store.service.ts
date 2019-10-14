@@ -67,6 +67,10 @@ export class StoreService {
   // limpia el store
   public clearStore(){
       this.changeStore(initStore);
-   }
+  }
 
+  
+  public addProduct(product:Object){
+
+  }
 }
