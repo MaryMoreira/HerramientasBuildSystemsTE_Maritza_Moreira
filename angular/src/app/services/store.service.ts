@@ -78,7 +78,7 @@ export class StoreService {
     let count = this.store['itemsCount'];
 
     if(prod){ // si existe actualiza el producto
-      prod['purchase'] = product['purcharse'];
+      prod['purchase'] = product['purchase'];
     }else{
       this.store['purchase'].push({...product});
       ++count;
@@ -93,6 +93,7 @@ export class StoreService {
     let newItems = products.map( (o) => {
         let ci = items.find( (p) => p['id'] == o['id'] );
         if(ci){ // si existe
+          ci['stock'] = o['stock'];
           return {...ci};
         }
         return {...o};

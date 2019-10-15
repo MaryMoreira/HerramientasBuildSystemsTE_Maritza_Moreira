@@ -89,7 +89,7 @@ export class DbService {
                 c.id = id;
             }
         })
-        return this.products.map ( p => p ); // crea un nuevo mapa de arreglos
+        this.setCollections(); // actualiza los productos
     }
 
 }

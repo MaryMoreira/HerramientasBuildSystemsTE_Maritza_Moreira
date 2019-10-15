@@ -42,13 +42,14 @@ export class PurchaseComponent implements OnInit {
     this.total = this.subtotal + this.taxes;
   }
 
-  // retorna a la pagina de home
+  // retorna a la pagina de home al presionar cancelar
   cancel(){
     // no se realiza ningun cambio
     this.store.changeStore({purchase:[], itemsCount:0});
     this.router.navigate(['/home']);
   }
 
+  // actualiza los registros al presionar el boton aceptar
   accept(){
     // actualiza los registros de los items
     this.db.updateProducts(this.items);
