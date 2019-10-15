@@ -83,7 +83,9 @@ export class DbService {
                 id = c.id; delete c.id;
                 c.stock -= o['purchase'];
                 // actualiza el objeto en la base de datos
-                this.db.doc('product/'+id).update(c);
+                this.db.collection('products')
+                       .doc(id)
+                       .set(c, {merge:true});
                 c.id = id;
             }
         })

@@ -1,0 +1,36 @@
+table {
+    width: 100%;
+}
+  
+tr.mat-footer-row {
+    font-weight: bold;
+}
+
+.purchase-container{
+    max-width: 1000px;
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+}
+
+.purchase-footer{
+    margin-top: 30px;
+    width: 100%;
+    display: flex; 
+    justify-content: flex-end
+}
+
+.purchase-footer1{
+    margin-left: 8px;;
+}
+
+.purchase-title{
+    font-size: 3rem;
+    margin: auto;
+    padding: 20px;
+}
+
+.purchase-total{
+    font-size: 1.6rem;
+}
+

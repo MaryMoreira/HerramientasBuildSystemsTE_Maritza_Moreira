@@ -1,1 +1,71 @@
-<p>purchase works!</p>
+
+<div class="purchase-container">
+
+    <div class="purchase-title">
+        <div>Factura</div>
+    </div>
+
+    <table mat-table [dataSource]="items" class="mat-elevation-z8">
+        
+        <!-- Img Column -->
+        <ng-container matColumnDef="Imagen">
+            <th mat-header-cell *matHeaderCellDef> Producto </th>
+            <td mat-cell *matCellDef="let prod"> 
+                <div mat-card-avatar class="item-header-image" 
+                    [ngStyle]="{'background-image': 'url(/assets/img/' + prod.img + ')',
+                                'background-size': 'cover'}">
+                </div>
+            </td>
+            <td mat-footer-cell *matFooterCellDef>  </td>
+        </ng-container>
+
+        <!-- Producto Column -->
+        <ng-container matColumnDef="Producto">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let prod"> {{prod.name}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <!-- Account Column -->
+        <ng-container matColumnDef="Cantidad">
+            <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+            <td mat-cell *matCellDef="let prod"> {{prod.purchase}} </td>
+            <td mat-footer-cell *matFooterCellDef> </td>
+        </ng-container>
+
+        <!-- Price Column -->
+        <ng-container matColumnDef="Precio">
+            <th mat-header-cell *matHeaderCellDef> Precio </th>
+            <td mat-cell *matCellDef="let prod"> {{prod.price | currency}} </td>
+            <td mat-footer-cell *matFooterCellDef>  
+                <p>Subtotal :</p>
+                <p>Inpuesto :</p>
+                <p class="purchase-total">Total :</p>
+            </td>
+        </ng-container>
+
+        <!-- Total Column -->
+        <ng-container matColumnDef="Total">
+            <th mat-header-cell *matHeaderCellDef> Total </th>
+            <td mat-cell *matCellDef="let prod"> {{ prod.price * prod.purchase | currency}} </td>
+            <td mat-footer-cell *matFooterCellDef>  
+                    <p>{{subtotal | currency}}</p>
+                    <p>{{taxes | currency}}</p>
+                    <p class="purchase-total">{{total | currency}}</p>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+
+    </table>
+
+    <div class="purchase-footer">
+        <div class="purchase-footer1">
+            <button mat-stroked-button color="primary">Aceptar</button>
+            <button mat-stroked-button color="warn">Cancelar</button>
+        </div>
+    </div>
+
+</div>
