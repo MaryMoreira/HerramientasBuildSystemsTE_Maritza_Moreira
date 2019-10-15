@@ -19,6 +19,14 @@ export class ItemComponent implements OnInit {
   
   ngOnInit() {
     this.product = this.store.getData()['curItem'];
+
+    // se suscribe a los eventos del store
+    this.store.subscribe('home', data => {
+      // si esta autentificado, coloca los datos del carrito
+      if(!data['isAuth']){
+        this.router.navigate(['/login']);
+      }
+    });
   }
 
   // retorna a la pagina de home

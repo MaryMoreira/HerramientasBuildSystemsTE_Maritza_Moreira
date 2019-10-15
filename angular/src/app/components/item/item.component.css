@@ -1,8 +1,23 @@
+.item-container{
+    max-width: 500px;
+    max-height: 760px;
+    height: 100%;
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+}
+
 .item-card {
     max-width: 400px;
 }
   
 .item-header-image {
-    background-image: url('/assets/img/examples/main-fondo.jpg');
+    background-image: url(/assets/img/main-fondo.jpg);
     background-size: cover;
+}
+
+.item-right {
+    padding: 10px;
+    display: flex; 
+    justify-content: flex-end
 }
