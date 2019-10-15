@@ -19,9 +19,7 @@ export class HomeComponent implements OnInit {
   // inicializa el componente
   ngOnInit() {
     this.firstTime = true;
-    this.strFilter = "";
-    this.products  = this.db.filterProducts(this.strFilter); // obtiene los productos
-    console.log("Init home");
+    this.products  = this.store.setItems(this.db.filterProducts("")); // obtiene los productos
 
     // se suscribe a los eventos del store
     this.store.subscribe('home', data => {
@@ -34,12 +32,12 @@ export class HomeComponent implements OnInit {
 
   // captura el keydown del buscador
   onSearchChange(searchValue: string): void {  
-    this.products  = this.db.filterProducts(searchValue); // obtiene los productos
+    this.products = this.store.setItems(this.db.filterProducts(searchValue)); // obtiene los productos
   }
 
   // incrementa la cantidad del producto
-  onNumberItemChange(value: string): void {  
-    
+  onNumberItemChange(value: string, product: Object): void {  
+    this.store.changeNumberProduct(product, parseInt(value));
   }
 
   // mostrar detalles del producto
@@ -50,7 +48,7 @@ export class HomeComponent implements OnInit {
 
   // anadir item al carrito
   addProduct(prod:Object){
-    
+    this.store.addProduct(prod);
   }
 
 }

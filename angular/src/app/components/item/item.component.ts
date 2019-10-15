@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DbService } from '../../services/db.service';
+import { StoreService } from 'src/app/services/store.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
-  constructor() { }
+  product:Object;
 
+  // constructor
+  constructor(private db : DbService, private store : StoreService, private router : Router) {
+  
+  }
+  
   ngOnInit() {
+    this.product = this.store.getData()['curItem'];
+  }
+
+  // retorna a la pagina de home
+  showHome(){
+    this.router.navigate(['/home']);
   }
 
 }

@@ -1,0 +1,8 @@
+.item-card {
+    max-width: 400px;
+}
+  
+.item-header-image {
+    background-image: url('/assets/img/examples/main-fondo.jpg');
+    background-size: cover;
+}
