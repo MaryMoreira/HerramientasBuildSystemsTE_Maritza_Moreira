@@ -1,6 +1,6 @@
 # HerramientasBuildSystemsTE_Maritza_Moreira
  
-  Proyecto de Tienda Online en Resct JS y Angular 8
+  Proyecto de Tienda Online en React JS y Angular 8
  
  
  # Especificaciones
