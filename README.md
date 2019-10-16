@@ -8,16 +8,19 @@
  Existen dos directorios:
  
   * reactjs  ->  Proyecto de Tienda Online en ReactJS
+  
   * angular  ->  Proyecto de Tienda Online en Angular8
   
   Ambos proyectos utilizan la base de datos de Google "Firebase" llamada 'tienda' en la nube, por lo que no se necesita crear ni preinstalar una base de datos, cada  proyecto utiliza distinta base de datos:
   
   react   ->  utiliza Realtime Database de Firebase
+  
   angular ->  utiliza Cloud Firestore de Firebase
   
   Ambos utilizan los mismos usuarios para ingresar (se puede acceder con cula1quiera de estos usuarios preregistrados en la BD):
   
    email : mary@nextui.com     password: mary
+   
    email : tutor2@nextui.com   password: tutor2
    
   El proyecto de react   fue construidos con: Webpack, Redux, Express, Firebase
