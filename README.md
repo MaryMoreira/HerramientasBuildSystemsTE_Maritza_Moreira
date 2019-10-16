@@ -17,13 +17,15 @@
   
     angular ->  utiliza Cloud Firestore de Firebase
   
-  Ambos utilizan los mismos usuarios para ingresar (se puede acceder con cula1quiera de estos usuarios preregistrados en la BD):
+  Ambos utilizan los mismos usuarios para ingresar (se puede acceder con cualquiera de estos usuarios preregistrados en la base de datos):
   
     email : mary@nextui.com     password: mary
    
     email : tutor2@nextui.com   password: tutor2
    
+   
   El proyecto de react   fue construidos con: Webpack, Redux, Express, Firebase
+  
   El proyecto de angular fue construidos con: Angular-cli, Firebase
   
 
