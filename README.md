@@ -35,7 +35,7 @@
   
    node v12.12.0
    
-  Para utiliza el proyecto en #ReactJS, ubicarse en el directorio "reactjs" y dar los siguientes comandos:
+  Para utilizar el proyecto en #ReactJS, ubicarse en el directorio "reactjs" y dar los siguientes comandos:
   
     # garantizar que todas las dependencias se encuentren instaladas
     ?>npm install      
@@ -46,7 +46,7 @@
     # revisar la aplicación
     Ir a: http://localhost:5000
     
-   Para utiliza el proyecto en #Angular, ubicarse en el directorio "angular" y dar los siguientes comandos:
+   Para utilizar el proyecto en #Angular, ubicarse en el directorio "angular" y dar los siguientes comandos:
    
     # instalar la última version de angular y angular-cli de manera globlal (la 8.3.5 o superior)
     ?>npm install -g @angular/cli
