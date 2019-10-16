@@ -89,3 +89,30 @@
   .login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
     padding: 0.8375em 0;
   }
+
+  .login-tittle{
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.33;
+    letter-spacing: 0em;
+  }
+
+  .login-check{
+    margin-bottom: 30px !important;
+  }
+
+  .login-txt-pass{
+    width: 100%;
+    margin-top: 20px;
+    font-size: 0.75rem;
+  }
+
+  .login-txt-pass-left{
+    float:left;
+  }
+
+  .login-txt-pass-right{
+    float:right;
+  }
