@@ -24,9 +24,9 @@
     email : tutor2@nextui.com   password: tutor2
    
    
-  El proyecto de react   fue construidos con: Webpack, Redux, Express, Firebase
+  El proyecto de react   fue construidos con: Webpack, Redux, Express, Material, Firebase
   
-  El proyecto de angular fue construidos con: Angular-cli, Firebase
+  El proyecto de angular fue construidos con: Angular-cli, Material, Firebase
   
 
  # Indicaciones para correr el proyecto:
